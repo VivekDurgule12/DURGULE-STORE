@@ -1,0 +1,27 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { Outlet } from "react-router-dom";
+import { useAuth } from "../../context/auth";
+import Spinner from "../Layout/Spinner";
+
+export default function AdminRoute() {
+  const [ok, setOk] = useState(false);
+  const [auth, setAuth] = useAuth();
+
+  useEffect(() => {
+    const authCheck = async () => {
+      const res = await axios.get(
+        "http://localhost:8080/api/v1/auth/admin-auth"
+      );
+      console.log(res.data.ok);
+      if (res.data.ok) {
+        setOk(true);
+      } else {
+        setOk(false);
+      }
+    };
+    if (auth?.token) authCheck();
+  }, [auth?.token]);
+
+  return ok ? <Outlet /> : <Spinner path="/" />;
+}

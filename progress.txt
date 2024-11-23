@@ -1,0 +1,15 @@
+setup : done
+dotenv file = done
+node.js mongodb : done 
+model and hashpassword : done 
+registering user :done
+Login API : done
+Protect Middleware: done
+App Component : done
+Nav & Fotter : done (pending image and dicription)
+react seo : done 
+Login Registering: done 
+contaxt api & logout : done  
+private Routes :done
+Forget Password Role : done
+admin & user  panel : 14:00
